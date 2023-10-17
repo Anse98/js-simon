@@ -41,7 +41,7 @@ body {
   font-size: 20px;
 }
 
-.random-num-container {
+.num-container {
   display: flex;
   align-items: center;
   gap: 20px;

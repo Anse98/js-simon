@@ -12,6 +12,7 @@ function getRandomInt(min, max) {
 
 // FUNZIONE CHE MI FA IL CONTO ALLA ROVESCIA 
 function doCountdown() {
+
   count--;
 
   // Vado a stampare nell'html il countdown
@@ -19,7 +20,31 @@ function doCountdown() {
 
   //Quando arriva a 0 si ferma
   if(count === 0) {
+
     clearInterval(timer);
+
+    //Chiedo all'utente 5 volte il numero da inserire e pusho nell'array i numeri inseriti
+    for (let i = 0; i < randomNums.length; i++) {
+      userNum = parseInt(prompt("Inserisci i numeri che ti ricordi"));
+      userNums.push(userNum);
+    } 
+
+    console.log("I numeri random erano : " + randomNums);
+
+
+    for (let i = 0; i < userNums.length; i++) {
+
+      if(userNums.includes(randomNums[i])){
+
+        equalNums.push(randomNums[i]);
+
+      }
+    }
+
+    console.log(`I numeri azzeccati sono ${equalNums.length} e sono ${equalNums}`);
+    
+    console.log("I numeri inseriti da te erano " + userNums);
+
   }
 }
 
@@ -28,6 +53,13 @@ function doCountdown() {
 
 // Mi creo un array dove andrò a pushare i 5 numeri casuali
 const randomNums = [];
+
+// Mi creo un array che avrà i numeri inseriti dall'utente
+const userNums = [];
+
+const equalNums = [];
+
+let userNum;
 
 // Vado a prendermi dal DOM l'elemento dove stampare il countdown
 const timerDOMElement = document.getElementById("countdown");
@@ -58,6 +90,11 @@ alert(`Memorizza questi numeri : ${randomNums} `);
 
 
 const timer = setInterval(doCountdown, 1000);
+
+
+
+
+
 
 
 

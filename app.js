@@ -19,32 +19,39 @@ function doCountdown() {
   timerDOMElement.innerHTML = count;
 
   //Quando arriva a 0 si ferma
-  if(count === 0) {
+  if (count === 0) {
 
     clearInterval(timer);
 
-    //Chiedo all'utente 5 volte il numero da inserire e pusho nell'array i numeri inseriti
+    // Chiedo all'utente 5 volte il numero da inserire e pusho nell'array i numeri inseriti
     for (let i = 0; i < randomNums.length; i++) {
       userNum = parseInt(prompt("Inserisci i numeri che ti ricordi"));
       userNums.push(userNum);
-    } 
+    }
 
-    console.log("I numeri random erano : " + randomNums);
 
+    randomNumDOMElement.innerHTML = `${randomNums} `;
+
+    userNumDOMElement.innerHTML = `${userNums}`;
 
     for (let i = 0; i < userNums.length; i++) {
 
-      if(userNums.includes(randomNums[i])){
+      if (userNums.includes(randomNums[i])) {
 
         equalNums.push(randomNums[i]);
 
       }
     }
 
-    console.log(`I numeri azzeccati sono ${equalNums.length} e sono ${equalNums}`);
-    
-    console.log("I numeri inseriti da te erano " + userNums);
+    if (equalNums.length !== 0) {
 
+      outputDOMElement.innerHTML =`I numeri azzeccati sono ${equalNums.length} e sono ${equalNums}`;
+
+    } else {
+
+      outputDOMElement.innerHTML = `Non hai azzeccato nessun numero!`;
+
+    }
   }
 }
 
@@ -57,12 +64,25 @@ const randomNums = [];
 // Mi creo un array che avrà i numeri inseriti dall'utente
 const userNums = [];
 
+// Array che si riempe solo di numeri uguali
 const equalNums = [];
 
+// Numero che inserirà l'utente
 let userNum;
 
 // Vado a prendermi dal DOM l'elemento dove stampare il countdown
 const timerDOMElement = document.getElementById("countdown");
+
+// Vado a prendermi dal DOM l'elemento dove stampare i numeri random
+const randomNumDOMElement = document.getElementById("random-numbers");
+
+// Vado a prendermi dal DOM l'elemento dove stampare il countdown
+const userNumDOMElement = document.getElementById("user-numbers");
+
+// Vado a prendermi dal DOM l'elemento dove stampare il countdown
+const outputDOMElement = document.getElementById("output");
+
+
 
 // Fisso una variabile count che parte da 30
 let count = 30;

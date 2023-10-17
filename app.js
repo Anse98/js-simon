@@ -62,8 +62,13 @@ function startGame() {
 
   count--;
 
-  // Vado a stampare nell'html il countdown
+  // Il contenuto dell'elemento del DOM con la classe countdown parte da count(30)
   timerDOMElement.innerHTML = count;
+
+  // I numeri nel timer diventano rossi dal 10 in giu 
+  if(count <= 10) {
+    timerDOMElement.classList.add("clr-red");
+  }
 
   //Quando arriva a 0 si ferma
   if (count === 0) {
@@ -112,9 +117,9 @@ const equalNums = [];
 let userNum;
 
 // Fisso una variabile count che parte da 30
-let count = 1;
+let count = 30;
 
-// Il contenuto dell'elemento del DOM con la classe countdown parte da count(30)
+// Faccio partire il timer dal 30
 timerDOMElement.innerHTML = count;
 
 

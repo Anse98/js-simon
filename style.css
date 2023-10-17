@@ -28,10 +28,9 @@ body {
   padding: 20px;
   background-color:cornflowerblue;
   border-radius: 5px;
-  color: white;
 }
 
-.bg-red {
+.clr-red {
   color: tomato;
 }
 
